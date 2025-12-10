@@ -1,0 +1,27 @@
+[MASTER]
+ignore=CVS,.history,output
+extension-pkg-whitelist=numpy,sounddevice,pedalboard
+
+[MESSAGES CONTROL]
+# Disable the message, report, category or checker with the given id(s).
+# C0114: Missing module docstring (often redundant in simple files)
+# C0115: Missing class docstring (good to have, but enforceable later)
+# C0116: Missing function docstring
+# R0903: Too few public methods (common for simple DTOs or scripts)
+disable=C0114,C0115,C0116,R0903
+
+[REPORTS]
+output-format=text
+reports=no
+score=yes
+
+[FORMAT]
+max-line-length=120
+
+[BASIC]
+# Good variable names which should always be accepted, separated by a comma.
+good-names=i,j,k,ex,Run,_,fx,fs
+
+[DESIGN]
+max-args=6
+max-attributes=10

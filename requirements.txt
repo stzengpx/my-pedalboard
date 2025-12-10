@@ -2,3 +2,4 @@ pedalboard
 sounddevice
 numpy
 soundfile
+pylint

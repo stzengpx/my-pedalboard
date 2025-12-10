@@ -17,7 +17,7 @@
 ### 事前準備
 
 1. **MacOS**（Intel 或 Apple Silicon 皆可）
-2. **Python 3.8+** - 檢查你的版本：
+2. **Python 3.12+** - 檢查你的版本：
    ```bash
    python3 --version
    ```
@@ -41,8 +41,8 @@
 
 1. **複製這個專案：**
    ```bash
-   git clone <your-repo-url>
-   cd 20251128-my-pedalboard
+   git clone https://github.com/stzengpx/my-pedalboard.git
+   cd my-pedalboard
    ```
 
 2. **安裝相依套件：**

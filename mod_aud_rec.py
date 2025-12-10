@@ -1,7 +1,7 @@
 import os
+from datetime import datetime
 import numpy as np
 import soundfile as sf
-from datetime import datetime
 
 class AudioRecorder:
     def __init__(self, sample_rate):
@@ -30,22 +30,22 @@ class AudioRecorder:
         # Create filename: DateYYYYMMDDhhmmss.xxx-suffix.mp3
         if timestamp is None:
             timestamp = datetime.now().strftime("%Y%m%d%H%M%S.%f")[:18] #.xxx for millis
-        
+
         filename = f"rec-{timestamp}{suffix}.mp3"
         filepath = os.path.join(output_dir, filename)
 
         print(f"💾 Saving recording to {filepath}...")
-        
+
         try:
             # Concatenate all frames
             audio_data = np.concatenate(self.frames, axis=0)
-            
+
             # Save using soundfile
-            # Note: writing to MP3 requires libmp3lame. 
+            # Note: writing to MP3 requires libmp3lame.
             # If it fails, soundfile usually raises an error.
             sf.write(filepath, audio_data, self.sample_rate)
             print("✅ Save complete.")
-        except Exception as e:
+        except (OSError, RuntimeError) as e:
             print(f"❌ Error saving file: {e}")
             # Fallback to WAV if MP3 fails
             try:
@@ -53,5 +53,5 @@ class AudioRecorder:
                 print(f"🔄 Retrying as WAV: {wav_path}")
                 sf.write(wav_path, audio_data, self.sample_rate)
                 print("✅ Saved as WAV.")
-            except Exception as e2:
+            except (OSError, RuntimeError) as e2:
                 print(f"❌ WAV fallback failed: {e2}")

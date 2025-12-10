@@ -30,7 +30,7 @@ class PedalboardConfig:
     def add_vst3(self, path: str, params: dict = None):
         self.chain.append(PluginConfig("vst3", path=path, params=params))
         return self
-    
+
     def add_custom(self, name: str, params: dict = None):
         self.chain.append(PluginConfig("custom", name=name, params=params))
         return self

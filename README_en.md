@@ -17,7 +17,7 @@ Built on [Spotify's Pedalboard library](https://github.com/spotify/pedalboard), 
 ### Prerequisites
 
 1. **MacOS** (Intel or Apple Silicon)
-2. **Python 3.8+** - Check your version:
+2. **Python 3.12+** - Check your version:
    ```bash
    python3 --version
    ```
@@ -41,8 +41,8 @@ We recommend using **[Google Antigravity](https://antigravity.google)** for deve
 
 1. **Clone this repository:**
    ```bash
-   git clone <your-repo-url>
-   cd 20251128-my-pedalboard
+   git clone https://github.com/stzengpx/my-pedalboard.git
+   cd my-pedalboard
    ```
 
 2. **Install dependencies:**

@@ -1,10 +1,8 @@
-import sounddevice as sd
-import numpy as np
 from datetime import datetime
+import sounddevice as sd
 import audio_config
-import fx_custom 
 
-# We import these for type checking compatibility if needed, 
+# We import these for type checking compatibility if needed,
 # but mostly we just iterate the chain.
 
 class PedalboardEngine:
@@ -15,14 +13,14 @@ class PedalboardEngine:
         self.clean_recorder = clean_recorder
         self.fx_recorder = fx_recorder
         self.chain = plugin_chain if plugin_chain else []
-        
-    def _audio_callback(self, indata, outdata, frames, time, status):
+
+    def _audio_callback(self, indata, outdata, _frames, _time, status):
         """
         Realtime audio callback called by sounddevice.
         """
         if status:
             print(f"⚠️ Audio Status: {status}")
-        
+
         # 1. Record Clean Input
         if self.clean_recorder:
             self.clean_recorder.add_frame(indata)
@@ -30,7 +28,7 @@ class PedalboardEngine:
         # 2. Process Audio Chain
         # We start with the input signal
         current_signal = indata
-        
+
         try:
             for effect in self.chain:
                 # Efficient logic to determine how to call the effect
@@ -41,13 +39,13 @@ class PedalboardEngine:
                     # Standard Pedalboard (C++) effects expect (channels, samples)
                     # We transpose before and after
                     current_signal = effect(current_signal.T, sample_rate=audio_config.SAMPLE_RATE).T
-                    
-        except Exception as e:
+
+        except (ValueError, RuntimeError, TypeError) as e:
             # Failsafe: If DSP crashes, we don't want to crash the thread if possible,
             # or allow it to pass through dry signal.
             # Printing ensures we see the error.
             print(f"❌ DSP Error: {e}")
-        
+
         # 3. Write processed audio to output
         outdata[:] = current_signal
 
@@ -64,11 +62,11 @@ class PedalboardEngine:
         print(f"   Output Device ID: {audio_config.OUTPUT_DEVICE}")
         print(f"   Sample Rate: {audio_config.SAMPLE_RATE} Hz")
         print(f"   Block Size: {audio_config.BLOCK_SIZE}")
-        
+
         # Helpful info for user
         # print("   Available Devices:")
         # print(sd.query_devices())
-        
+
         try:
             if self.clean_recorder:
                 self.clean_recorder.start()
@@ -87,8 +85,8 @@ class PedalboardEngine:
             ):
                 print("\n🚀 Pedalboard Running! Press 'Enter' to stop...")
                 input()
-                
-        except Exception as e:
+
+        except (OSError, ValueError) as e:
             print(f"\n❌ Audio Engine Error: {e}")
             print("   Tip: Check your device IDs in audio_config.py")
         finally:
@@ -101,7 +99,7 @@ class PedalboardEngine:
         if self.clean_recorder or self.fx_recorder:
             print("\n💾 Saving recordings...")
             timestamp = datetime.now().strftime("%Y%m%d%H%M%S.%f")[:18]
-            
+
             if self.clean_recorder:
                 self.clean_recorder.save(timestamp=timestamp, suffix="-clean")
             if self.fx_recorder:
