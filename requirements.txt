@@ -1,0 +1,4 @@
+pedalboard
+sounddevice
+numpy
+soundfile
