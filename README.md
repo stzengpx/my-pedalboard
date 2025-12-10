@@ -28,6 +28,8 @@
 
 3. **音訊介面**（建議）- 任何 USB 音訊介面都可以用來輸入吉他訊號
    - 例如：Focusrite Scarlett、Spark 2 或類似產品
+   - 最簡單的應該是 "Type C" 轉 "3.5麥克風 + 3.5耳機"
+      - ex: https://24h.pchome.com.tw/prod/DCACH3-A900FY56S
 
 ### 推薦開發環境
 

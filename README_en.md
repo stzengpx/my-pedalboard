@@ -28,6 +28,8 @@ Built on [Spotify's Pedalboard library](https://github.com/spotify/pedalboard), 
 
 3. **Audio Interface** (Recommended) - Any USB audio interface for guitar input
    - Example: Focusrite Scarlett, Spark 2, or similar
+   - The most simply hardware should be "Type C" to "3.5 mic + 3.5 phone"
+      - ex: https://24h.pchome.com.tw/prod/DCACH3-A900FY56S
 
 ### Recommended Development Environment
 
