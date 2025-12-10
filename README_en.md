@@ -33,9 +33,8 @@ Built on [Spotify's Pedalboard library](https://github.com/spotify/pedalboard), 
 
 We recommend using **[Google Antigravity](https://antigravity.google)** for development:
 - AI-powered coding assistance
-- Browser-based, no local setup needed
 - Perfect for vibe coding and experimentation
-- Great for engineers who want to focus on creativity, not configuration
+- Great for engineers/everyone who want to focus on creativity, not configuration
 
 ### Installation
 
