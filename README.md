@@ -2,7 +2,7 @@
 
 一個用 Python 打造的即時吉他效果器！在你的 Mac 上透過可自訂的效果鏈，轉換你的吉他音色。
 
-基於 [Spotify 的 Pedalboard 函式庫](https://github.com/spotify/pedalboard)開發，這個專案讓你可以實驗音訊效果、創造自訂 DSP 演算法，甚至整合 VST3 插件。
+基於 [Spotify 的 Pedalboard 函式庫](https://github.com/spotify/pedalboard) 開發，這個專案讓你可以實驗音訊效果、創造自訂 DSP 演算法，甚至整合 VST3 插件。
 
 ## ✨ 特色功能
 
@@ -257,6 +257,8 @@ PLUGIN_CHAIN_CONFIG_DEMO_Crunch = [
 ```
 
 ## ⚙️ 自訂你的效果鏈
+
+refer to [fx_custom/README.md](https://github.com/stzengpx/my-pedalboard/blob/main/fx_custom/README.md) for more information.
 
 編輯 `fx_config.py` 來改變你的效果鏈：
 
