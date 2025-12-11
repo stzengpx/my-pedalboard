@@ -40,9 +40,9 @@ class PedalboardConfig:
 
 # config Instance
 PLUGIN_CHAIN_CONFIG = [
-    # {"type": "internal", "name": "Distortion", "params": {"drive_db": 25}},
+    {"type": "internal", "name": "Distortion", "params": {"drive_db": 25}},
     # {"type": "custom", "name": "MyChorus", "params": {"depth_ms": 3.0, "speed_hz": 2.5, "mix": 0.5}},
-    {"type": "custom", "name": "MyShifter", "params": {"semitones": -12.0, "mix": 1.0}}, # Octave Down
+    # {"type": "custom", "name": "MyShifter", "params": {"semitones": -12.0, "mix": 1.0}}, # Octave Down
     # {"type": "internal", "name": "Reverb", "params": {"room_size": 0.5}},
-    # {"type": "internal", "name": "Gain", "params": {"gain_db": -3}},
+    {"type": "internal", "name": "Gain", "params": {"gain_db": -3}},
 ]

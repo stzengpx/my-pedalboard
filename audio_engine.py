@@ -32,7 +32,7 @@ class PedalboardEngine:
         try:
             for effect in self.chain:
                 # Efficient logic to determine how to call the effect
-                if hasattr(effect, '__class__') and effect.__class__.__module__ == 'fx_custom':
+                if hasattr(effect, '__class__') and effect.__class__.__module__.startswith('fx_custom'):
                      # Custom Python effects expect (samples, channels)
                     current_signal = effect(current_signal, audio_config.SAMPLE_RATE)
                 else:
