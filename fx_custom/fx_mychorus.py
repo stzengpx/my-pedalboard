@@ -1,7 +1,5 @@
 import numpy as np
 
-# --- Custom Effect Library ---
-
 class MyChorus:
     """
     A simple Python implementation of a Vibrato/Chorus effect.

@@ -1,7 +1,7 @@
 import sounddevice as sd
 
 SAMPLE_RATE = 32000
-BLOCK_SIZE = 64
+BLOCK_SIZE = 32
 LATENCY = (0.01, 0.01) # (input, output) ms
 
 # Device Selection

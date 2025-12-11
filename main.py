@@ -8,6 +8,7 @@ from audio_engine import PedalboardEngine
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Guitar Pedalboard with Recording")
     parser.add_argument("-r", "--record", action="store_true", help="Record both clean and FX sounds")
+    parser.add_argument("-p", "--preset", type=str, choices=['a1', 'a2', 'a3', 'a4'], help="Load a specific preset (a1=Clean, a2=Lead, a3=Solo, a4=Crunch)")
     return parser.parse_args()
 
 def main():
@@ -15,6 +16,19 @@ def main():
 
     # 1. Load Configuration
     plugin_config = fx_config.PLUGIN_CHAIN_CONFIG
+    
+    if args.preset == 'a1':
+        print("Loading Preset: Clean Tone")
+        plugin_config = fx_config.PLUGIN_CHAIN_CONFIG_DEMO_CleanTone
+    elif args.preset == 'a2':
+        print("Loading Preset: Lead Guitar")
+        plugin_config = fx_config.PLUGIN_CHAIN_CONFIG_DEMO_LeadGuitar
+    elif args.preset == 'a3':
+        print("Loading Preset: Solo Guitar")
+        plugin_config = fx_config.PLUGIN_CHAIN_CONFIG_DEMO_SoloGuitar
+    elif args.preset == 'a4':
+        print("Loading Preset: Crunch")
+        plugin_config = fx_config.PLUGIN_CHAIN_CONFIG_DEMO_Crunch
 
     # 2. Build Effect Chain
     # The PluginManager handles the complexity of creating different types of effects
